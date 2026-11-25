@@ -1,128 +1,209 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pantun Semangat Kerja ❤️</title>
-
+<meta name="theme-color" content="#172033">
+<title>Panda & Little Programmer ❤️</title>
 <style>
+:root {
+  --pink: #ff91bd;
+  --pink-light: #ffd6e7;
+  --navy: #172033;
+  --card: #202b40;
+  --cream: #fff7f1;
+}
+* { box-sizing: border-box; }
 body {
-  background: #0d1117;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
+  margin: 0; min-height: 100vh; padding: 24px 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 15% 15%, #59466b 0, transparent 30%),
+    radial-gradient(circle at 90% 85%, #5b385c 0, transparent 28%),
+    linear-gradient(145deg, #101827, #202b40 60%, #34263e);
+  overflow-x: hidden;
 }
-
-.box {
-  border: 2px solid #f58ab6;
-  border-radius: 20px;
-  padding: 30px 20px;
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0 25px #f58ab655;
+.card {
+  position: relative; z-index: 2; width: min(100%, 680px);
+  padding: clamp(18px, 4vw, 32px);
+  text-align: center; border: 1.5px solid #ff9fc7;
+  border-radius: 28px; background: rgba(23, 32, 51, .94);
+  box-shadow: 0 18px 60px #080d18aa, 0 0 28px #ff91bd22;
 }
-
-h1 {
-  color: #ff8fbd;
+h1 { margin: 4px 0 8px; color: #ffafd0; font-size: clamp(25px, 5vw, 36px); }
+.subtitle { margin: 0 0 18px; color: #f8d6e5; }
+.hero {
+  width: 100%; display: block; border-radius: 20px;
+  border: 1px solid #ffffff22; box-shadow: 0 8px 25px #080d1844;
 }
-
-.pantun {
-  font-size: 18px;
-  line-height: 1.8;
-  margin: 25px 0;
+.tag {
+  display: inline-block; margin: 18px 0 4px; padding: 7px 13px;
+  border-radius: 99px; color: #ffe1ed; background: #ff91bd22;
+  border: 1px solid #ff91bd66; font-size: 13px;
 }
-
-button {
-  background: #f58ab6;
-  border: none;
-  padding: 13px 25px;
-  border-radius: 25px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+.pantun-box {
+  margin: 12px 0 18px; padding: 20px 14px; min-height: 190px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-radius: 20px; background: linear-gradient(145deg, #2a354b, #352c45);
+  border: 1px solid #ffffff16;
 }
-
-button:hover {
-  background: #e85c98;
+.pantun { font-size: clamp(16px, 3.5vw, 19px); line-height: 1.85; }
+.pantun .punchline { color: #ffafd0; font-weight: 700; }
+.small { color: #c8c4d2; font-size: 13px; line-height: 1.6; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+button, .file-label {
+  border: 0; border-radius: 99px; padding: 12px 18px;
+  color: #241a2b; background: var(--pink); font-weight: 700;
+  font-size: 14px; cursor: pointer; transition: transform .2s, filter .2s;
 }
-
-.footer {
-  color: #aaa;
-  font-size: 13px;
-  margin-top: 25px;
+button:hover, .file-label:hover { transform: translateY(-2px); filter: brightness(1.06); }
+button.secondary { background: #d7c8f5; }
+.file-label { display: inline-flex; align-items: center; }
+input[type=file] { display: none; }
+#musicStatus { margin-top: 10px; min-height: 18px; color: #f4c8dc; font-size: 12px; }
+.footer { margin-top: 20px; color: #c8c4d2; font-size: 12px; }
+.heart {
+  position: fixed; bottom: -30px; z-index: 1; pointer-events: none;
+  color: #ff9fc7; opacity: .75; animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
 }
 </style>
 </head>
-
-
 <body>
+<main class="card">
+  <h1>🐼 Hello, Favorite Human! ❤️</h1>
+  <p class="subtitle">Dari Panda Civil Engineer & Panda Programmer</p>
 
-<div class="box">
-  <h1>☀️ Morning Sunshine!</h1>
+  <img class="hero" src="panda-couple.png"
+       alt="Panda cowok civil engineer dan panda cewek programmer">
 
-  <p>Good morning, beautiful soul ❤️</p>
+  <div class="tag">🏗️ + 💻 Built with love</div>
 
-  <div class="pantun" id="pantun">
-    Wake up and shine! ☀️<br><br>
-    A new day, a new chance.<br>
-    Keep smiling, keep going.<br>
-    Believe in yourself.<br><br>
-    Have a great day at work! 💪❤️
+  <section class="pantun-box" aria-live="polite">
+    <div class="pantun" id="pantun">
+      Pergi ke proyek membawa semen,<br>
+      Pulangnya mampir membeli jamu.<br><br>
+      Kalau hari ini kerjaan bikin pening,<br>
+      Jangan lupa, ada yang sayang kamu. ❤️
+    </div>
+  </section>
+
+  <div class="actions">
+    <button onclick="gantiPantun()">💌 Pantun berikutnya</button>
+    <label class="file-label" for="songFile">🎵 Pilih lagu</label>
+    <input id="songFile" type="file" accept="audio/*">
+    <button class="secondary" id="playBtn" onclick="toggleMusic()">▶ Putar</button>
   </div>
-
-  <button onclick="gantiPesan()">
-    Click for a Smile 💌
-  </button>
+  <div id="musicStatus">Pilih file lagu dari perangkatmu, lalu tekan Putar.</div>
 
   <div class="footer">
-    You can do amazing things.<br>
-    Stay happy and keep shining! ❤️
+    Semoga harimu lancar seperti jalan tol,<br>
+    dan rindumu tidak pernah mengalami maintenance. 😂❤️
   </div>
-</div>
+</main>
+
+<audio id="music" loop></audio>
 
 <script>
-const pesan = [
-`Take a deep breath. 🌸<br><br>
-Forget yesterday's worries.<br>
-Focus on today's opportunities.<br>
-Do your best and enjoy the journey.<br><br>
-Happy working! ❤️`,
+const pantun = [
+  `Pergi ke proyek membawa semen,<br>
+   Pulangnya mampir membeli jamu.<br><br>
+   Kalau hari ini kerjaan bikin pening,<br>
+   <span class="punchline">Jangan lupa, ada yang sayang kamu. ❤️</span>`,
 
-`Good morning, sunshine! ☀️<br><br>
-May your coffee be strong,<br>
-your work be easy,<br>
-and your day be wonderful.<br><br>
-You got this! 💪`,
+  `Buka laptop untuk coding,<br>
+   Eh, malah error tujuh kali.<br><br>
+   Katanya cinta butuh debugging,<br>
+   <span class="punchline">Tapi kamu tetap di hati, tidak perlu di-compile lagi. 🤭</span>`,
 
-`One step at a time.<br><br>
-Don't rush, don't give up.<br>
-Your hard work will pay off.<br>
-Keep believing in yourself.<br><br>
-Have a lovely day! ❤️`,
+  `Ukur jembatan pakai meteran,<br>
+   Gambar struktur harus presisi.<br><br>
+   Kalau rindu jangan dipendam sendirian,<br>
+   <span class="punchline">Kirim pesan, nanti kubalas pakai emoji. 😘</span>`,
 
-`Smile a little more. 😊<br><br>
-Work hard, stay positive,<br>
-and don't forget to be happy.<br><br>
-Sending you positive energy! 💕`
+  `Ke toko bangunan membeli paku,<br>
+   Sekalian beli cat warna biru.<br><br>
+   Banyak pekerjaan menunggu dirimu,<br>
+   <span class="punchline">Tapi jangan sampai lupa istirahat dulu. 🥰</span>`,
+
+  `Program dibuat baris demi baris,<br>
+   Beton dituang harus merata.<br><br>
+   Kamu memang paling manis,<br>
+   <span class="punchline">Sampai panda pun ikut jatuh cinta. 🐼💕</span>`,
+
+  `Naik crane melihat awan,<br>
+   Turun sebentar membeli ketan.<br><br>
+   Semoga lancar semua pekerjaan,<br>
+   <span class="punchline">Jangan lupa kabari kalau sudah makan. 😂</span>`,
+
+  `Buka browser mencari referensi,<br>
+   Ketemu bug malah jadi penasaran.<br><br>
+   Kalau kamu jadi notifikasi,<br>
+   <span class="punchline">Aku tak akan pernah tekan “dismiss” sembarangan. ❤️</span>`
 ];
 
-let index = 0;
-
-function gantiPesan() {
-  index = (index + 1) % pesan.length;
-  document.getElementById("pantun").innerHTML = pesan[index];
+let current = 0;
+function gantiPantun() {
+  current = (current + 1) % pantun.length;
+  document.getElementById("pantun").innerHTML = pantun[current];
 }
+
+const audio = document.getElementById("music");
+const fileInput = document.getElementById("songFile");
+const playBtn = document.getElementById("playBtn");
+const musicStatus = document.getElementById("musicStatus");
+let audioUrl = null;
+
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+  if (audioUrl) URL.revokeObjectURL(audioUrl);
+  audioUrl = URL.createObjectURL(file);
+  audio.src = audioUrl;
+  musicStatus.textContent = "Lagu siap diputar: " + file.name;
+  playBtn.textContent = "▶ Putar";
+});
+
+async function toggleMusic() {
+  if (!audio.src) {
+    musicStatus.textContent = "Pilih file lagu terlebih dahulu ya. 🎵";
+    fileInput.click();
+    return;
+  }
+  if (audio.paused) {
+    try {
+      await audio.play();
+      playBtn.textContent = "⏸ Jeda";
+      musicStatus.textContent = "Musik sedang diputar. ❤️";
+    } catch (e) {
+      musicStatus.textContent = "Lagu belum bisa diputar. Coba pilih file lain.";
+    }
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶ Putar";
+    musicStatus.textContent = "Musik dijeda.";
+  }
+}
+audio.addEventListener("ended", () => {
+  playBtn.textContent = "▶ Putar";
+});
+
+// Hati kecil yang melayang
+function buatHati() {
+  const h = document.createElement("span");
+  h.className = "heart";
+  h.textContent = Math.random() > .5 ? "♥" : "♡";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = (12 + Math.random() * 18) + "px";
+  h.style.animationDuration = (6 + Math.random() * 5) + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 11000);
+}
+setInterval(buatHati, 850);
 </script>
-
-
-
 </body>
 </html>
