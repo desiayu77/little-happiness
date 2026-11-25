@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#172033">
-<title>Luvv❤️</title>
+<title>Panda & Little Programmer ❤️</title>
 <style>
 :root {
   --pink: #ff91bd;
@@ -75,11 +75,11 @@ input[type=file] { display: none; }
 </head>
 <body>
 <main class="card">
-  <h1>🐼 Hello, Luvv ❤️</h1>
-  <p class="subtitle">Dari Orang Random Sedunia</p>
+  <h1>🐼 Hello, Favorite Human! ❤️</h1>
+  <p class="subtitle">Dari Panda Civil Engineer & Panda Programmer</p>
 
-  <img class="hero" src="panda-couple.png"
-       alt="Panda cowok civil engineer dan panda cewek programmer">
+  <img class="hero" src="engineer-girl.png"
+       alt="Ilustrasi cute engineer perempuan di lokasi konstruksi">
 
   <div class="tag">🏗️ + 💻 Built with love</div>
 
@@ -88,17 +88,15 @@ input[type=file] { display: none; }
       Pergi ke proyek membawa semen,<br>
       Pulangnya mampir membeli jamu.<br><br>
       Kalau hari ini kerjaan bikin pening,<br>
-      Jangan lupa, ada yang peduli sama kamu. ❤️
+      Jangan lupa, ada yang sayang kamu. ❤️
     </div>
   </section>
 
   <div class="actions">
     <button onclick="gantiPantun()">💌 Pantun berikutnya</button>
-    <label class="file-label" for="songFile">🎵 Pilih lagu</label>
-    <input id="songFile" type="file" accept="audio/*">
-    <button class="secondary" id="playBtn" onclick="toggleMusic()">▶ Putar</button>
+    <button class="secondary" id="playBtn" onclick="toggleMusic()">🎵 Putar lagu</button>
   </div>
-  <div id="musicStatus">♫ I Like You So Much — tekan Putar untuk mendengarkan ❤️</div>
+  <div id="musicStatus">♫ I Like You So Much ❤️</div>
 
   <div class="footer">
     Semoga harimu lancar seperti jalan tol,<br>
@@ -153,43 +151,40 @@ function gantiPantun() {
 }
 
 const audio = document.getElementById("music");
-const fileInput = document.getElementById("songFile");
 const playBtn = document.getElementById("playBtn");
 const musicStatus = document.getElementById("musicStatus");
-let audioUrl = null;
-
-fileInput.addEventListener("change", () => {
-  const file = fileInput.files[0];
-  if (!file) return;
-  if (audioUrl) URL.revokeObjectURL(audioUrl);
-  audioUrl = URL.createObjectURL(file);
-  audio.src = audioUrl;
-  musicStatus.textContent = "Lagu siap diputar: " + file.name;
-  playBtn.textContent = "▶ Putar";
-});
 
 async function toggleMusic() {
-  if (!audio.src) {
-    musicStatus.textContent = "Tambahkan file i-like-you-so-much.mp3 ke folder website terlebih dahulu ya. 🎵";
-    fileInput.click();
-    return;
-  }
   if (audio.paused) {
     try {
       await audio.play();
-      playBtn.textContent = "⏸ Jeda";
-      musicStatus.textContent = "Musik sedang diputar. ❤️";
+      playBtn.textContent = "⏸ Jeda lagu";
+      musicStatus.textContent = "Now playing: I Like You So Much ❤️";
     } catch (e) {
-      musicStatus.textContent = "Lagu belum bisa diputar. Coba pilih file lain.";
+      musicStatus.textContent =
+        "Lagu belum bisa diputar. Pastikan file i-like-you-so-much.mp3 sudah diunggah ke GitHub. 🎵";
     }
   } else {
     audio.pause();
-    playBtn.textContent = "▶ Putar";
-    musicStatus.textContent = "Musik dijeda.";
+    playBtn.textContent = "🎵 Putar lagu";
+    musicStatus.textContent = "Musik dijeda. ❤️";
   }
 }
+
 audio.addEventListener("ended", () => {
-  playBtn.textContent = "▶ Putar";
+  playBtn.textContent = "🎵 Putar lagu";
+});
+
+// Coba putar otomatis. Browser dapat memblokir autoplay bersuara;
+// jika diblokir, pengunjung cukup menekan tombol Putar lagu.
+window.addEventListener("load", async () => {
+  try {
+    await audio.play();
+    playBtn.textContent = "⏸ Jeda lagu";
+    musicStatus.textContent = "Now playing: I Like You So Much ❤️";
+  } catch (e) {
+    musicStatus.textContent = "♫ I Like You So Much — tekan Putar lagu ❤️";
+  }
 });
 
 // Hati kecil yang melayang
